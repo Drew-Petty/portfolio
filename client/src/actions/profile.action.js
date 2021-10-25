@@ -3,6 +3,7 @@ import { PROFILE_LOADED, PROFILE_MISSING, PROFILE_ERROR, UPDATE_PROFILE, ACCOUNT
 import { setAlert } from './alert.action' 
 const backend ="http://localhost:3001/"
 
+
 export const loadProfile = () => async dispatch =>{
     try {
         const res = await axios.get(backend+'api/host/profile')

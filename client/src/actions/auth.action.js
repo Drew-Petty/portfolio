@@ -4,6 +4,7 @@ import setAuthToken from '../utils/setAuthToken'
 const backend ="http://localhost:3001/"
 
 
+
 export const loadUser = () => async dispatch =>{
     if(localStorage.token){
         setAuthToken(localStorage.token)

@@ -5,6 +5,8 @@ services:
     volumes:
       - data:/data/db
     container_name: mongodb
+    networks:
+      - portfolio
   backend:
     build:
       context: ./backend
@@ -17,6 +19,8 @@ services:
       - '3001:3001'
     depends_on: 
       - mongodb
+    networks:
+      - portfolio
   frontend:
     build:
       context: ./client
@@ -27,6 +31,8 @@ services:
     restart: on-failure
     ports:
       - '3000:3000'
+    networks:
+      - portfolio
   nginx:
     container_name: nginx
     depends_on:
@@ -37,8 +43,12 @@ services:
       context: ./nginx
     ports:
       - '80:80'
-
+    networks:
+      - portfolio
 
 volumes:
   data:
   public:
+
+networks:
+  portfolio:
