@@ -10,7 +10,7 @@ const ProfileWebsites = ({hostProfile:{websites}}) => {
                     <div className="websites my-2">
                         {websites.map((web, index)=>(
                             <div key={index} className="website bg-light">
-                                <img src={`/uploads/${web.filename}`} alt={web.filename} />
+                                <img src={`/backend/uploads/${web.filename}`} alt={web.filename} />
                                 <h3 className="text-primary">{web.title}</h3>
                                 <p><strong>Language:</strong> {web.language}</p>
                                 <p><strong>Framework:</strong> {web.framework}</p>

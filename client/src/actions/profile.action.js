@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { PROFILE_LOADED, PROFILE_MISSING, PROFILE_ERROR, UPDATE_PROFILE, ACCOUNT_DELETED, CLEAR_PROFILE, GET_REPOS } from './actionTypes'
 import { setAlert } from './alert.action' 
-const backend ="http://localhost:3001/"
+const backend ="/backend/"
 
 
 export const loadProfile = () => async dispatch =>{
