@@ -10,7 +10,8 @@ import Dashboard from './components/dashboard/Dashboard';
 import EditProfile from './components/forms/EditProfile';
 import AddWebsite from './components/forms/AddWebsite';
 import AddExperience from './components/forms/AddExperience';
-import AddEducation from './components/forms/AddEducation'
+import AddEducation from './components/forms/AddEducation';
+import AddDocument from './components/forms/AddDocument';
 
 //redux
 import { Provider } from 'react-redux';
@@ -43,6 +44,7 @@ const App=()=>{
             <PrivateRoute exact path='/addExperience' component={AddExperience}/>
             <PrivateRoute exact path='/addEducation' component={AddEducation}/>
             <PrivateRoute exact path='/addWebsite' component={AddWebsite}/>
+            <PrivateRoute exact path='/addDocument' component={AddDocument}/>
           </Switch>
         </div>
       </Router>

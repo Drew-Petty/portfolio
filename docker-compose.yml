@@ -11,18 +11,12 @@ services:
       context: ./nginx
     ports:
       - '80:80'
-    networks:
-      - portfolio
   frontend:
     build:
       context: ./client
       dockerfile: Dockerfile.nginx
     container_name: frontend
     restart: on-failure
-    # ports:
-    #   - '3000:3000'
-    networks:
-      - portfolio
   backend:
     build:
       context: ./backend
@@ -31,23 +25,18 @@ services:
     container_name: backend
     volumes:
       - public:/app/public
-    # ports: 
-    #   - '3001:3001'
+    ports: 
+      - '3001:3001'
     depends_on: 
       - mongodb
-    networks:
-      - portfolio
   mongodb:
     image: 'mongo'
     volumes:
       - data:/data/db
     container_name: mongodb
-    networks:
-      - portfolio
+    
 
 volumes:
   data:
   public:
 
-networks:
-  portfolio:

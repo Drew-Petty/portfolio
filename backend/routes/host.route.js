@@ -51,6 +51,13 @@ router.put('/experience', [auth,[
 
 router.delete('/experience/:exp_id', auth, HostController.removeExperience)
 
+router.put('/document', [auth,[
+    check('title', 'Title is required').not().isEmpty(),
+    check('googleDocLink', 'URL is required').not().isEmpty()
+]], HostController.addDocument)
+
+router.delete('/document/:doc_id', auth, HostController.removeDocument)
+
 router.get('/repos/:username', HostController.getRepos)
 
 module.exports = router

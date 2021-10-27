@@ -26,6 +26,19 @@ const ProfileSchema = new mongoose.Schema({
     bio:{
         type:String
     },
+    resume:{
+        type:String
+    },
+    documents:[
+        {
+            title:{
+                type:String,
+            },
+            googleDocLink:{
+                type:String,
+            }
+        }
+    ],
     websites:[
         {
             title:{

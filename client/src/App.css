@@ -290,11 +290,13 @@ body {
   font-family: "Raleway", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
-  color: #333;
 }
 a {
+  font-family: "Raleway", sans-serif;
+  line-height: 1.6;
+  font-size: 1rem;
   text-decoration: none;
+  font-size: 1rem;
   color: #17a2b8;
 }
 ul {
@@ -336,10 +338,9 @@ img {
 }
 .wrapper {
   position: relative;
-  background-image: url("./img/chalkboard.png");
+  background-image: url("../src/img/chalkboard.png");
   min-height: 100vh;
   padding-top: 8rem;
-  
 }
 .basic-page {
   height: 100%;
@@ -430,6 +431,12 @@ img {
 .profile-grid .profile-top .icons a:hover {
   color: #17a2b8;
 }
+.profile-grid .profile-top a {
+  color: #fff;
+}
+.profile-grid .profile-top a:hover {
+  color: #17a2b8;
+}
 .profile-grid .profile-about {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
@@ -437,7 +444,7 @@ img {
   grid-area: about;
   text-align: center;
 }
-.profile-grid .profile-about .skills {
+.profile-grid .profile-about .small-items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -450,6 +457,12 @@ img {
   -ms-flex-align: center;
   align-items: center;
   text-align: center;
+}
+.profile-grid .profile-about .small-items a {
+  color: #fff;
+}
+.profile-grid .profile-about .small-items a:hover {
+  color: #17a2b8;
 }
 .profile-grid .profile-web {
   -ms-grid-row: 3;
@@ -605,6 +618,9 @@ img {
   }
   .profile-grid .profile-web .websites .website {
     width: 80%;
+  }
+  .form {
+    width: 100%;
   }
   .post {
     -ms-grid-columns: 1fr;

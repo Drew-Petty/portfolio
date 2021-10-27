@@ -1,7 +1,9 @@
 import axios from 'axios'
 import {REGISTER_SUCCESS, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGOUT} from './actionTypes'
 import setAuthToken from '../utils/setAuthToken'
-const backend ="/backend/"
+// const backend ="/backend/"
+const backend ="http://localhost:3001/"
+
 
 
 

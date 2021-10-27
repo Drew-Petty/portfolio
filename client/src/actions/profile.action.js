@@ -1,7 +1,9 @@
 import axios from 'axios'
 import { PROFILE_LOADED, PROFILE_MISSING, PROFILE_ERROR, UPDATE_PROFILE, ACCOUNT_DELETED, CLEAR_PROFILE, GET_REPOS } from './actionTypes'
 import { setAlert } from './alert.action' 
-const backend ="/backend/"
+// const backend ="/backend/"
+const backend ="http://localhost:3001/"
+
 
 
 export const loadProfile = () => async dispatch =>{
@@ -19,7 +21,6 @@ export const loadProfile = () => async dispatch =>{
         }
         
     } catch (error) {
-        console.log(error)
         dispatch({
             type: PROFILE_ERROR,
             payload: {msg: error.response.statusText, status: error.response.status}
@@ -52,7 +53,6 @@ export const editProfile = (formData, history) => async dispatch =>{
                 'Content-Type': 'application/json'
             }
         }
-        console.log(formData)
         const res = await axios.post(backend+'api/host/profile', formData, config)
         dispatch({
             type:UPDATE_PROFILE,
@@ -123,9 +123,33 @@ export const addEducation = (formData, history)=> async dispatch=>{
         })
     }
 }
+export const addDocument = (formData, history)=> async dispatch=>{
+    try {
+        const config ={
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }
+        const res = await axios.put(backend+'api/host/document', formData, config)
+        dispatch({
+            type: UPDATE_PROFILE,
+            payload: res.data
+        })
+        dispatch(setAlert('Document added','success'))
+        history.push('/dashboard')
+    } catch (error) {
+        const errors = error.response.data.errors
+        if(errors){
+            errors.forEach(err => dispatch(setAlert(err.msg,'danger')));
+        }
+        dispatch({
+            type: PROFILE_ERROR,
+            payload: {msg: error.response.statusText, status: error.response.status}
+        })
+    }
+}
 
 export const addWebsite = (file, fields, history)=> async dispatch=>{
-    console.log('add website')
     try {
         const config ={
             headers:{
@@ -168,6 +192,23 @@ export const deleteEducation = id => async dispatch=>{
                 payload: res.data
             })
             dispatch(setAlert('Education removed','success'))
+        } catch (error) {
+            dispatch({
+                type: PROFILE_ERROR,
+                payload: {msg: error.response.statusText, status: error.response.status}
+            })
+        }
+    }
+}
+export const deleteDocument = id => async dispatch=>{
+    if(window.confirm('Are you sure?')){
+        try {
+            const res = await axios.delete(backend+`api/host/document/${id}`)
+            dispatch({
+                type: UPDATE_PROFILE,
+                payload: res.data
+            })
+            dispatch(setAlert('Document removed','success'))
         } catch (error) {
             dispatch({
                 type: PROFILE_ERROR,

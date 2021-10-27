@@ -6,6 +6,7 @@ import { loadProfile, deleteAccount } from '../../actions/profile.action'
 import Education from './Education'
 import Websites from './Websites'
 import Experience from './Experience'
+import Documents from './Documents'
 import Alert from '../layout/Alert'
 
 
@@ -23,12 +24,14 @@ const Dashboard = ({loadProfile, deleteAccount, hostProfile}) => {
           <Link className="btn btn-primary m-1" to='/addExperience'><i className="fab fa-black-tie"></i> Add Experience</Link>
           <Link className="btn btn-primary m-1" to='/addEducation'><i className="fas fa-graduation-cap"></i> Add Education</Link>
           <Link className="btn btn-primary m-1" to='/AddWebsite'><i className="fas fa-globe"></i> Add Website</Link>
+          <Link className="btn btn-primary m-1" to='/AddDocument'><i className="fas fa-file"></i> Add Document</Link>
         </div>
         {hostProfile !==null && (
           <Fragment>
             <Experience experience={hostProfile.experience}/>
             <Education education={hostProfile.education}/>
             <Websites websites={hostProfile.websites}/>
+            <Documents documents={hostProfile.documents}/>
           </Fragment>
         )}
       <div className="my-2">

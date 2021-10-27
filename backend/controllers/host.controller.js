@@ -11,7 +11,6 @@ const UploadPath = './public/uploads/'
 
 class HostController{
     getHostUser = async (req, res) =>{
-        console.log('connected to front end')
         try {
             const host = await Host.findById(req.hostUser.id).select('-password')
             res.json(host)
@@ -32,7 +31,6 @@ class HostController{
     getProfile = async (req, res)=>{
         try {
             const profiles = await Profile.find().populate('host',['name','email', 'avatar'])
-        
             res.json(profiles[0])
         } catch (error) {
             console.error(error)
@@ -252,6 +250,37 @@ class HostController{
             res.status(500).send('Server Error')
         }
     }
+    addDocument = async (req, res)=>{
+        try {
+            const errors = validationResult(req)
+            if(!errors.isEmpty()){
+                return res.status(400).json({errors: errors.array()})
+            }
+            const {title, googleDocLink} = req.body
+            const newDoc = {title, googleDocLink}
+            const profile = await Profile.findOne({host: req.hostUser.id})
+            profile.documents.unshift(newDoc)
+            await profile.save()
+            res.json(profile)
+        } catch (error) {
+            console.error(error)
+            res.status(500).send('Server Error')
+        }
+    }
+
+    removeDocument = async (req, res)=>{
+        try {
+            const profile = await Profile.findOne({host:req.hostUser.id})
+            const removeIndex = profile.documents.map(item=>item.id).indexOf(req.params.doc_id)
+            profile.documents.splice(removeIndex,1)
+            await profile.save()
+            res.json(profile)
+        } catch (error) {
+            console.error(error)
+            res.status(500).send('Server Error')
+        }
+    }
+
     getRepos = async (req, res)=>{
         try {
             const options ={
