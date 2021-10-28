@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ProfileTop = ({hostProfile:{location, phone, youtube, linkedIn, host:{avatar, name, email}}}) => {
+const ProfileTop = ({hostProfile:{location, phone, youtube, linkedIn, resume, host:{avatar, name, email}}}) => {
     return (
         <div className="profile-top p-2">
             <img className="round-img my-1" src={avatar} alt=""/>
@@ -16,7 +16,11 @@ const ProfileTop = ({hostProfile:{location, phone, youtube, linkedIn, host:{avat
             {linkedIn && (
                 <a href={linkedIn} target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin fa-2x"></i></a>
             )}
+
             </div>
+            {resume && (
+                <a href={resume} className="lead" target="_blank" rel="noopener noreferrer">Resume</a>
+            )}
         </div>
     )
 }

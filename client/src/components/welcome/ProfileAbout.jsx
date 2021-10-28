@@ -27,7 +27,7 @@ const ProfileAbout = ({hostProfile:{bio, technologies, documents}}) => {
                     <h2 className="text-primary">Certifications</h2>
                     <div className="small-items">
                         {documents.map((doc, index)=>(
-                            <div className="p-1" key={index}><a href={doc.googleDocLink}><i className="fas fa-file"></i> {doc.title}</a></div>
+                            <div className="p-1" key={index}><a href={doc.googleDocLink} target="_blank" rel="noopener noreferrer"><i className="fas fa-file"></i> {doc.title}</a></div>
                         ))}
                     </div>
                 </Fragment>

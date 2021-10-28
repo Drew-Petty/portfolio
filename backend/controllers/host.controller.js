@@ -111,13 +111,14 @@ class HostController{
     }
     profile = async (req, res)=>{
         try {
-            const { location, githubUsername, linkedIn, technologies, phone, bio, youtube }=req.body
+            const { location, githubUsername, linkedIn, technologies, phone, bio, resume, youtube }=req.body
             const profileFields={}
             profileFields.host = req.hostUser.id
             profileFields.location = location
             profileFields.phone = phone
             profileFields.githubUsername = githubUsername
             profileFields.bio = bio
+            profileFields.resume = resume
             profileFields.linkedIn = linkedIn
             profileFields.youtube = youtube
             if(technologies === ''){

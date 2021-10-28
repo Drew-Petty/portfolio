@@ -8,7 +8,7 @@ import Alert from '../layout/Alert'
 
 const EditProfile = ({profile:{hostProfile, profileLoading}, editProfile, loadProfile, history}) => {
     const [formData, setFormData] =useState({})
-    const {location, githubUsername, linkedIn, youtube, phone, technologies, bio}=formData
+    const {location, githubUsername, linkedIn, youtube, phone, technologies, bio, resume}=formData
     const [displaySocialInputs, toggleSocialInputs]=useState(false)
     useEffect(()=>{
         loadProfile()
@@ -19,6 +19,7 @@ const EditProfile = ({profile:{hostProfile, profileLoading}, editProfile, loadPr
             youtube: profileLoading || !hostProfile.youtube?'':hostProfile.youtube,
             bio: profileLoading || !hostProfile.bio?'':hostProfile.bio,
             phone: profileLoading || !hostProfile.phone?'':hostProfile.phone,
+            resume: profileLoading || !hostProfile.resume?'':hostProfile.resume,
             technologies: profileLoading || !hostProfile.technologies ? '': hostProfile.technologies.join(', ')
         })
     },[loadProfile, profileLoading])
@@ -51,6 +52,10 @@ const EditProfile = ({profile:{hostProfile, profileLoading}, editProfile, loadPr
                 <div className="form-group">
                     <input type="text" placeholder="Github Username" name="githubUsername" value={githubUsername} onChange={onChangeHandler}/>
                     <small className="form-text">If you want your latest repos and a Github link, include your username</small>
+                </div>
+                <div className="form-group">
+                    <input type="text" placeholder="Resume Google Doc" name="resume" value={resume} onChange={onChangeHandler}/>
+                    <small className="form-text">If you want your resume displayed add a google doc link</small>
                 </div>
                 <div className="form-group">
                     <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={onChangeHandler}></textarea>
