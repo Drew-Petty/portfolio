@@ -13,7 +13,7 @@ const ProfileGitHub = ({hostProfile:{githubUsername}, getGithubRepos, repos}) =>
     },[getGithubRepos, githubUsername])
 
     return (
-        <div className='profile-github'>
+        <div className='profile-github' id="profile-github">
             {githubUsername && (
                 <Fragment>
                     <h2 className="text-primary my-1"><i className="fab fa-github"></i> Github Repos / What I've been working on</h2>

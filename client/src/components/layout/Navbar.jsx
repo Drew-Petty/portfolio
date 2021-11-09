@@ -15,6 +15,14 @@ const Navbar = ({auth:{authLoading, isAuthenticated}, profile:{hostProfile, prof
     )
     const guestLinks = (
         <ul>
+            <li><a href="#profile-about">About</a></li>
+            <li><a href="#profile-web">Websites</a></li>
+            <li><a href="#profile-edu">Education</a></li>
+            <li><a href="#profile-exp">Experience</a></li>
+            <li><a href="#profile-contact">Contact</a></li>
+            <li><a href="#profile-github">GitHub</a></li>
+
+
             {hostProfile!==null || profileLoading=== true?<li><Link to='/login'>Admin Login</Link></li>:<li><Link to='/register'>Register</Link></li>}
         </ul>
     )

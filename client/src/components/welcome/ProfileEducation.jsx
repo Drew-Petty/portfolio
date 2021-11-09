@@ -4,7 +4,7 @@ import Moment from 'react-moment'
 
 const ProfileEducation = ({hostProfile:{education}}) => {
     return (
-        <div className="profile-edu">
+        <div className="profile-edu" id="profile-edu">
             {education.length > 0 && (
                 <Fragment>
                     <h2 className="text-primary my-1">Education</h2>

@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { PROFILE_LOADED, PROFILE_MISSING, PROFILE_ERROR, UPDATE_PROFILE, ACCOUNT_DELETED, CLEAR_PROFILE, GET_REPOS } from './actionTypes'
 import { setAlert } from './alert.action' 
-const backend ="/backend/"
-// const backend ="http://localhost:3001/"
+// const backend ="/backend/"
+const backend ="http://localhost:3001/"
 
 
 
@@ -10,6 +10,7 @@ export const loadProfile = () => async dispatch =>{
     try {
         const res = await axios.get(backend+'api/host/profile')
         if(res.data){
+
             dispatch({
                 type:PROFILE_LOADED,
                 payload:res.data
@@ -156,7 +157,7 @@ export const addWebsite = (file, fields, history)=> async dispatch=>{
                 'Content-Type': 'multipart/form-data'
             }
         }
-        const {title, language, framework, description, url, gitHubRepo}=fields
+        const {title, language, framework, description, url, demoLink, gitHubRepo}=fields
         const formData = new FormData()
         formData.append('file',file)
         formData.append('title',title)
@@ -164,6 +165,7 @@ export const addWebsite = (file, fields, history)=> async dispatch=>{
         formData.append('framework',framework)
         formData.append('description',description)
         formData.append('url',url)
+        formData.append('demoLink',demoLink)
         formData.append('gitHubRepo',gitHubRepo)
         const res = await axios.put(backend+'api/host/website', formData, config)
         dispatch({

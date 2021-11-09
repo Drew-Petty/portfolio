@@ -29,7 +29,6 @@ router.delete('/account', auth, HostController.reset)
 
 router.put('/website', [auth, upload,[
     check('title','Title is required').not().isEmpty(),
-    check('url', 'Url is required').not().isEmpty()
 ]], HostController.addWebsite)
 
 router.delete('/website/:web_id', auth, HostController.removeWebsite)

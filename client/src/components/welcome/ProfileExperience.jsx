@@ -4,7 +4,7 @@ import Moment from 'react-moment'
 
 const ProfileExperience = ({hostProfile:{experience}}) => {
     return (
-        <div className="profile-exp">
+        <div className="profile-exp" id="profile-exp">
             {experience.length>0 && (
                 <Fragment>
                     <h2 className="text-primary my-1">Experience</h2>

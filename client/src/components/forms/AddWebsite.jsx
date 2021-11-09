@@ -11,7 +11,7 @@ const AddWebsite = ({ addWebsite, history}) => {
     const [file, setFile]=useState('')
     const filePicker = useRef(null)
 
-    const {title, language, framework, description, url, gitHubRepo}=formData
+    const {title, language, framework, description, url, demoLink, gitHubRepo}=formData
 
 
     const onChangeHandler = e =>setFormData({...formData, [e.target.name]:e.target.value})
@@ -54,11 +54,15 @@ const AddWebsite = ({ addWebsite, history}) => {
                     <input type="text" placeholder="* Title" name="title" required value={title} onChange={onChangeHandler}/>
                 </div>
                 <div className="form-group">
-                    <input type="text" placeholder="* URL" name="url" required value={url} onChange={onChangeHandler}/>
+                    <input type="text" placeholder="URL" name="url" value={url} onChange={onChangeHandler}/>
                 </div>
                 <div className="form-group">
-                    <input type="text" placeholder="* GitHub Repo URL" name="gitHubRepo" required value={gitHubRepo} onChange={onChangeHandler}/>
+                    <input type="text" placeholder="Demo Link URL" name="demoLink" value={demoLink} onChange={onChangeHandler}/>
                 </div>
+                <div className="form-group">
+                    <input type="text" placeholder="GitHub Repo URL" name="gitHubRepo" value={gitHubRepo} onChange={onChangeHandler}/>
+                </div>
+
                 <div className="form-group">
                     <input type="text" placeholder="* Programing Language" name="language" required value={language} onChange={onChangeHandler}/>
                 </div>

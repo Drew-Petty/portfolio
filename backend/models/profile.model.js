@@ -54,6 +54,9 @@ const ProfileSchema = new mongoose.Schema({
             description:{
                 type:String
             },
+            demoLink:{
+                type:String
+            },
             url:{
                 type:String
             },

@@ -6,6 +6,7 @@ import { loadProfile } from '../../actions/profile.action'
 import Spinner from '../layout/Spinner'
 import Start from './Start'
 import Profile from './Profile'
+import Alert from '../layout/Alert'
 
 const Welcome = ({ isAuthenticated, loadProfile, profile:{hostProfile, profileLoading} }) => {
     useEffect(()=>{

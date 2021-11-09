@@ -12,6 +12,7 @@ connectDatabase()
 app.use(express.json({extended:false}))
 
 app.use('/api/host', require('./routes/host.route'))
+app.use('/api/email', require('./routes/email.route'))
 
 app.use(express.static('./public'))
 

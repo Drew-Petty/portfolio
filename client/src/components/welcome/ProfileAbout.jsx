@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const ProfileAbout = ({hostProfile:{bio, technologies, documents}}) => {
 
     return (
-        <div className="profile-about">
+        <div className="profile-about" id="profile-about">
             {bio && (
                 <Fragment>
                     <h2 className="text-primary">Bio</h2>

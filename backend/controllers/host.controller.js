@@ -166,9 +166,9 @@ class HostController{
             if(!errors.isEmpty()){
                 return res.status(400).json({errors: errors.array()})
             }
-            const { title, language, framework, description, url, gitHubRepo }= req.body
+            const { title, language, framework, description, url, demoLink, gitHubRepo }= req.body
             const { filename }= req.file
-            const newWeb = { title, language, framework, description,url,gitHubRepo,filename}
+            const newWeb = { title, language, framework, description,url,gitHubRepo, demoLink, filename}
             const profile = await Profile.findOne({host: req.hostUser.id})
             profile.websites.unshift(newWeb)
             await profile.save()
